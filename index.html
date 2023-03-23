@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CSS Domaći</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <style>
+    body {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .box {
+      position: absolute;
+      width: 200px;
+      height: 175px;
+      background-color: #050210;
+    }
+
+    .circle {
+      margin-left: 20px;
+      margin-top: 10px;
+      position: relative;
+      content: "";
+      width: 150px;
+      height: 150px;
+      border-radius: 8rem;
+      inset: 0;
+      border: 0px solid #050210;
+      background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+      animation: circle 0.8s linear infinite;
+    }
+
+    .circle::before {
+      inset: 0;
+      position: absolute;
+      content: "";
+      background: #050210;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      border-radius: 8rem;
+      box-shadow: inset 0px 0px 100px -70px #050210;
+      animation-timing-function: ease-out;
+      animation: pulse 1s reverse infinite;
+    }
+
+    .circle::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      bottom: -10px;
+      right: -10px;
+      z-index: -1;
+      background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+      opacity: 0.5;
+      filter: blur(8px);
+      border-radius: 8rem;
+    }
+
+    @keyframes circle {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 25px navy inset;
+      }
+      33% {
+        box-shadow: 0 0 30px navy inset;
+      }
+      66% {
+        box-shadow: 0 0 x navy inset;
+      }
+      100% {
+        box-shadow: 0 0 30px navy inset;
+      }
+    }
+  </style>
+  <body>
+    <div class="box">
+      <div class="circle"></div>
+      <div class="outer-circle"></div>
+    </div>
+  </body>
+</html>
